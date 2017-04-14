@@ -1,4 +1,4 @@
-# ArcDPS-Updater
+# ArcDPS-Updater (Restricted Version)
 Powershell Script to Auto-Update ArcDPS
 
 Very simple script to update your ArcDPS DLLs with the click of a button, without the hassle of doing all the steps manually.
