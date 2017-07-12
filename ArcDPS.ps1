@@ -2,12 +2,12 @@
 
 # Must set path to where your bin64 folder is located
 $ArcDPS = "\Guild Wars 2\bin64\d3d9.dll"
-$ArcDPS_Restricted = "\Guild Wars 2\bin64\d3d9_arcdps_buildtemplates.dll"
+$ArcDPS_Restricted = "\Guild Wars 2\bin64\d3d9_arcdps_qol.dll"
 $Success = "ArcDPS has successfully updated"
 $Failure = "ArcDPS has failed to update"
 
 $ArcDPS_Backup = "s\Guild Wars 2\bin64\d3d9.dll.bak"
-$ArcDPS_Restricted_Backup = "s\Guild Wars 2\bin64\d3d9_arcdps_buildtemplates.dll.bak"
+$ArcDPS_Restricted_Backup = "s\Guild Wars 2\bin64\d3d9_arcdps_qol.dll.bak"
 $Restricted_Success = "ArcDPS Restricted has successfully updated"
 $Restricted_Failure = "ArcDPS Restricted has failed to update"
 
@@ -34,13 +34,13 @@ Else {
 If ($TestPath_ArcDPS_Restricted_Backup -eq $True) {
     Remove-Item -Path $ArcDPS_Restricted_Backup 
     Rename-Item $ArcDPS_Restricted $ArcDPS_Restricted_Backup  
-    Invoke-WebRequest "http://www.deltaconnected.com/arcdps/x64/RESTRICTED-buildtemplates/d3d9_arcdps_buildtemplates.dll" -OutFile $ArcDPS_Restricted
+    Invoke-WebRequest "http://www.deltaconnected.com/arcdps/x64/RESTRICTED-qol/d3d9_arcdps_qol.dll" -OutFile $ArcDPS_Restricted
     Write-Host $Restricted_Success
 }
 # Assums this is a first time installation of ArcDPS with no backup present.
 Else {
         If ($TestPath_ArcDPS_Restricted_Backup -eq $False) { 
-            Invoke-WebRequest "http://www.deltaconnected.com/arcdps/x64/RESTRICTED-buildtemplates/d3d9_arcdps_buildtemplates.dll" -OutFile $ArcDPS_Restricted
-            Write-Host $Restricted_Success
+            Invoke-WebRequest "http://www.deltaconnected.com/arcdps/x64/RESTRICTED-qol/d3d9_arcdps_qol.dll" -OutFile $ArcDPS_Restricted
+            Write-Host "Succesfully installed ArcDPS"
         }
 }
